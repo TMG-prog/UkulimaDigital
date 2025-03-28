@@ -2,7 +2,7 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import React, { useState, useEffect } from 'react';
-
+import { FaInstagram, FaXTwitter, FaEnvelope } from "react-icons/fa6";  
 import './landingpage.css'; 
 import heroImage from './ukulimadigi.jpg'; 
 import SignUpModal from './signUp';
@@ -98,9 +98,9 @@ const LandingPage = () => {
         <div className="logo">UkulimaDigi</div>
         <nav className="nav-links">
           <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Contact</a>
-          <a href="#">Explore</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#offers">Explore</a>
         </nav>
         <button className="btn-outline" onClick={openLogInModal}>Log In</button> 
       </header>
@@ -124,7 +124,7 @@ const LandingPage = () => {
       <LogInModal isOpen={isLogInOpen} onClose={closeLogInModal} />
 
       {/* About Section */}
-      <h2 className="highlight">ABOUT US</h2>
+      <h2 id="about"className="highlight">ABOUT US</h2>
       <section className="about-container" data-aos="fade-up">
    
         <div className="image-section" data-aos="zoom-in">
@@ -142,7 +142,7 @@ const LandingPage = () => {
 
 
       {/* What We Offer Section */}
-      <h2 className="offer-title" data-aos="zoom-in">What We Offer</h2>
+      <h2 id="offers"className="offer-title" data-aos="zoom-in">What We Offer</h2>
       <section className="offer-section"data-aos="slide-up" >
         <div className="offer-card" >
           <img src="/offer.jpg" alt="Smart Crop Monitoring" />
@@ -172,16 +172,22 @@ const LandingPage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="footer">
-        <div className='footer-text'>
-          <p>UkulimaDigi © 2025</p>
-          
-          <p>Contact Us: Ukulimadigital@gmail.com</p>
-          <p>Instagram: UkulimaDigi</p>
-          <p>X: UkulimaDigionX</p>
-          
-        </div>
-      </footer>
+      <footer id="contact" className="footer">
+  <div className='footer-text'>
+    <p>UkulimaDigi © 2025</p>
+    
+    <p>
+      <FaEnvelope /> Contact Us: Ukulimadigital@gmail.com
+    </p>
+    <p>
+      <FaInstagram /> Instagram: UkulimaDigi
+    </p>
+    <p>
+      <FaXTwitter /> X: UkulimaDigionX
+    </p>
+  </div>
+</footer>
+
     </div>
   );
 };
