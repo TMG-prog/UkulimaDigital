@@ -79,10 +79,7 @@ const Dashboard = () => {
         </section>
 
         {/* Footer */}
-        <footer className="footer">
-          <p>UkulimaDigi © 2025</p>
-          <p>Simplify. Manage. Grow.</p>
-        </footer>
+        
       </div>
     </div>
   );
