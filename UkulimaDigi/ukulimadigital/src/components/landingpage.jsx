@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import React, { useState, useEffect } from 'react';
+
 import './landingpage.css'; 
 import heroImage from './ukulimadigi.jpg'; 
 import SignUpModal from './signUp';
@@ -7,6 +11,7 @@ import Aboutpic from './about.jpg';
 import person1 from './person1.jpg';
 import person2 from './person2.jpg';
 import person3 from './person3.jpg';
+
 const testimonials = [
   {
     quote: "My daughter told me about UkulimaDigi, and it changed my life. At the time, the produce I was growing to sell in the market was constantly being destroyed by pests. Now, with AI disease detection and expert farming tips, I can prevent losses and sell fresher produce.",
@@ -60,6 +65,7 @@ const Testimonials = () => {
 };
 
 const LandingPage = () => {
+  
   const [isSignUpOpen, setIsSignUpOpen] = useState(false);
   const [isLogInOpen, setIsLogInOpen] = useState(false);
 
@@ -68,7 +74,23 @@ const LandingPage = () => {
 
   const openLogInModal = () => setIsLogInOpen(true);
   const closeLogInModal = () => setIsLogInOpen(false);
-
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false, 
+      easing: 'ease-in-out',
+    });
+  
+    
+    window.addEventListener('load', AOS.refresh);
+    window.addEventListener('scroll', AOS.refresh);
+  
+    return () => {
+      window.removeEventListener('load', AOS.refresh);
+      window.removeEventListener('scroll', AOS.refresh);
+    };
+  }, []);
+  
   return (
     <div className="landing-page">
       {/* Header */}
@@ -85,7 +107,7 @@ const LandingPage = () => {
 
       {/* Hero Section */}
       <section className="hero-section">
-        <div className="hero-content">
+        <div className="hero-content" data-aos="fade-right">
           <h1>UkulimaDigi</h1>
           <h3>Smart Farming, Right at your fingertips</h3>
           <div className="cta-buttons">
@@ -93,7 +115,7 @@ const LandingPage = () => {
             <button className="btn-secondary" onClick={openSignUpModal}>Sign Up</button> 
           </div>
         </div>
-        <div className="hero-image-container">
+        <div className="hero-image-container" data-aos="fade-left">
           <img src={heroImage} alt="Farmer using mobile phone" className="hero-image" />
         </div>
       </section>
@@ -103,8 +125,9 @@ const LandingPage = () => {
 
       {/* About Section */}
       <h2 className="highlight">ABOUT US</h2>
-      <section className="about-container">
-        <div className="image-section">
+      <section className="about-container" data-aos="fade-up">
+   
+        <div className="image-section" data-aos="zoom-in">
           <img src={Aboutpic} alt="Farmer using mobile phone" className="about-image" />
         </div>
         <div className="text-section">
@@ -113,14 +136,15 @@ const LandingPage = () => {
             At UkulimaDigi, we believe that anyone can be a farmer. Whether you are growing crops in your backyard or managing a small farm, our digital platform helps you track your crops, 
             get real-time farming tips, and detect plant diseases using AI.
           </p>
-          <button className="about-button" onClick={openSignUpModal}>GET STARTED</button>
+          <button className="about-button" onClick={openSignUpModal} data-aos="flip-up" >GET STARTED</button>
         </div>
       </section>
 
+
       {/* What We Offer Section */}
-      <h2 className="offer-title">What We Offer</h2>
-      <section className="offer-section">
-        <div className="offer-card">
+      <h2 className="offer-title" data-aos="zoom-in">What We Offer</h2>
+      <section className="offer-section"data-aos="slide-up" >
+        <div className="offer-card" >
           <img src="/offer.jpg" alt="Smart Crop Monitoring" />
           <h3>Smart Crop Monitoring</h3>
           <p>Track your crops in real-time using AI-powered insights.</p>
@@ -143,8 +167,9 @@ const LandingPage = () => {
       </section>
 
       {/* Testimonials Section */}
-     
+      <section data-aos="fade-up" > <h1>TESTIMONIALS</h1>
       <Testimonials />
+      </section>
 
       {/* Footer */}
       <footer className="footer">
