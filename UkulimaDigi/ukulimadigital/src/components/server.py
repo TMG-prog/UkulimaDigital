@@ -5,7 +5,7 @@ import requests
 import base64
 from dotenv import load_dotenv
 
-# Load environment variables
+# Loading the environment variables
 load_dotenv()
 API_KEY = os.getenv("PLANT_ID_API_KEY") or "GX9bL5qkAbZdRHC3fZEjltoPj0nGu1OuMWs8uwep960EbIfxKd"
 
@@ -36,13 +36,13 @@ def identify_plant(image_path):
         }
 
         response = requests.post(PLANT_ID_URL, json=payload, headers=headers)
-        print("📡 API Request Sent:", response.status_code, response.text)  # Debugging  
+        print("📡 API Request Sent:", response.status_code, response.text)  
 
         if response.status_code == 200:
             result = response.json()
-            print("🌱 API Response:", result)  # Debugging  
+            print("🌱 API Response:", result)   
 
-            # Extract disease information
+            # Extracting disease information
             disease_data = result.get("result", {}).get("disease", {}).get("suggestions", [])
             diseases = []
             
@@ -75,7 +75,7 @@ def predict():
     # Send image to Plant.id API
     result = identify_plant(file_path)
 
-    # Remove the uploaded file after processing
+    # Removing the uploaded file after processing
     os.remove(file_path)
 
     return jsonify(result), 201
