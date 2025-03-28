@@ -39,12 +39,12 @@ const CropDiseaseDetector = () => {
       });
   
       const rawData = await response.json();
-      console.log("📡 Raw API Response:", rawData); // Debugging
+      console.log("Raw API Response:", rawData); // Debugging
   
-      // Ensure "details" field is parsed correctly
+     
       let data;
       try {
-        data = JSON.parse(rawData.details); // Convert stringified JSON to an object
+        data = JSON.parse(rawData.details); 
       } catch (err) {
         console.error(" Failed to parse details:", err);
         setDisease("Error processing API response");
@@ -52,16 +52,16 @@ const CropDiseaseDetector = () => {
         return;
       }
   
-      console.log("✅ Parsed API Data:", data); // Debugging
+      console.log("Parsed API Data:", data); // Debugging
   
-      // Extract disease information correctly
+      
       if (data.result?.disease?.suggestions?.length > 0) {
         const topDisease = data.result.disease.suggestions[0];
         const detectedDisease = topDisease.name || "Unknown Disease";
         
         setDisease(detectedDisease);
   
-        // Get solution from imported file
+        
         const suggestedSolution = diseaseSolutions[detectedDisease] || 
           "No specific solution found. Consult an expert for treatment.";
   
