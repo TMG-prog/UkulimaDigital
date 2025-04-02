@@ -110,8 +110,9 @@ const LandingPage = () => {
         <div className="hero-content" data-aos="fade-right">
           <h1>UkulimaDigi</h1>
           <h3>Smart Farming, Right at your fingertips</h3>
+
           <div className="cta-buttons">
-            <button className="btn-primary">Learn More</button>
+          <button className="btn-primary">Learn More</button>
             <button className="btn-secondary" onClick={openSignUpModal}>Sign Up</button> 
           </div>
         </div>
