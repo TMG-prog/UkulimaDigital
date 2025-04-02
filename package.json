@@ -4,9 +4,13 @@
   "description": "Overview\r UkulimaDigi is a digital farming assistant designed for small-scale farmers. It provides tools for crop management, automated disease detection using AI, eco-friendly farming practices, and direct market access. The goal is to help farmers increase productivity and reduce losses.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC"
+ 
 }
