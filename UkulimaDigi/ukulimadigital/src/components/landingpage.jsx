@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { FaInstagram, FaXTwitter, FaEnvelope } from "react-icons/fa6";  
 import './landingpage.css'; 
 import heroImage from './ukulimadigi.jpg'; 
+import logo from './logo.png';
 import SignUpModal from './signUp';
 import LogInModal from './Login';
 import Aboutpic from './about.jpg';
@@ -95,7 +96,10 @@ const LandingPage = () => {
     <div className="landing-page">
       {/* Header */}
       <header className="navbar">
-        <div className="logo">UkulimaDigi</div>
+        <div className="logo">
+        <img src={logo} alt="UkulimaDigi Logo" />
+        
+        </div>
         <nav className="nav-links">
           <a href="#">Home</a>
           <a href="#about">About</a>
@@ -112,7 +116,8 @@ const LandingPage = () => {
           <h3>Smart Farming, Right at your fingertips</h3>
 
           <div className="cta-buttons">
-          <button className="btn-primary">Learn More</button>
+          <button className="btn-primary"   onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
+          >Learn More</button>
             <button className="btn-secondary" onClick={openSignUpModal}>Sign Up</button> 
           </div>
         </div>
@@ -143,7 +148,7 @@ const LandingPage = () => {
 
 
       {/* What We Offer Section */}
-      <h2 id="offers"className="offer-title" data-aos="zoom-in">What We Offer</h2>
+      <h2 id="offers"className="offer-title" data-aos="zoom-in">WHAT WE OFFER</h2>
       <section className="offer-section"data-aos="slide-up" >
         <div className="offer-card" >
           <img src="/offer.jpg" alt="Smart Crop Monitoring" />
@@ -168,7 +173,7 @@ const LandingPage = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section data-aos="fade-up" > <h1>TESTIMONIALS</h1>
+      <section id="testimonial" data-aos="fade-up" > <h1>TESTIMONIALS</h1>
       <Testimonials />
       </section>
 

@@ -5,6 +5,7 @@ import CropManagement from "./crop";
 import ToDo from "./tasks";
 import WeatherWidget from "./weather";
 import CropDiseaseDetector from "./cropdiseasedetector";
+import logo from "./logo.png"
 
 const Dashboard = () => {
   const [stats, setStats] = useState({
