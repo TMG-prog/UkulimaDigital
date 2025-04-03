@@ -1,4 +1,4 @@
-# UkulimaDigital
+# UkulimaDigital (link to website https://ukulimadigi.onrender.com/)
 
 Overview
 UkulimaDigi is a digital farming assistant designed for small-scale farmers. It provides tools for crop management, automated disease detection using AI, eco-friendly farming practices, and direct market access. The goal is to help farmers increase productivity and reduce losses.
